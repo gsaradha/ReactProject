@@ -3,10 +3,13 @@ import Aux from '../../../hoc/Aux/aux';
 import Button from '../../UI/Button/Button';
 
 const orderSummary =(props)=>{
-    const ingredientSummary = Object.keys(props.ingredients)
+  
+     const ingredientSummary = Object.keys(props.ingredients)
     .map((elt)=>{
         return <li key={elt}><span style={{textTransform:'capitalize'}}>{elt}</span> : {props.ingredients[elt]}</li>
     })
+
+
 return(
     <Aux>
         <h3> Your order</h3>
@@ -14,7 +17,7 @@ return(
          <ul>
             {ingredientSummary}
          </ul>
-         <p>Total Price : <strong>{props.price.toFixed(2)}</strong></p>
+         <p>Total Price : <strong>{props.price}</strong></p>
          <p> Continue to Checkout?</p>
          <Button btnType="Danger" clicked={props.purchaseCancelled}>CANCEL</Button>
          <Button btnType="Success" clicked={props.purchaseContinued}>CONTINUE</Button>
@@ -24,4 +27,4 @@ return(
 }
 
 
-export default orderSummary;
+export default orderSummary
